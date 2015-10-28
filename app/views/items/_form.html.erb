@@ -1,0 +1,5 @@
+<h4>Add an item!</h4>
+<%= form_for [current_user, Item.new], html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Create" %>
+<% end %>

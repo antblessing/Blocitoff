@@ -1,1 +1,13 @@
 <p><%= link_to @user.email, @user %></p>
+<h3><%= @user.email %>'s to do list.</h3>
+<table class="table table-striped">
+  <tr>
+    <th>Item</th>
+    <th>Days Remaining</th>
+    <th></th>
+  </tr>
+  <%= render @user.items %>
+</table>
+<% if @user == current_user %>
+<p><%= render partial: "items/form" %></p>
+<% end %>
