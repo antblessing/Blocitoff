@@ -1,5 +1,12 @@
 <tr>
   <td><%= item.name %></td>
   <td></td>
-  <td></td>
+  <td>
+    <% if user == current_user %>
+      <%= link_to "", [user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
+    <% end %>
+  </td>
 </tr>
+
+
+

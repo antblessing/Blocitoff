@@ -8,13 +8,27 @@ class ItemsController < ApplicationController
       flash[:error] = "your item was not saved"
       render :new
     end
+  end
+  
+  def destroy
+    @item = Item.find(params[:id])
     
+    if @item.destroy
+      flash[:notice] = "Item has been terminated"
+    else
+      flash[:error] = "Whoops!"
+    end
     
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def new
     @item = Item.new
   end
+  
   
   private
   
